@@ -1,3 +1,6 @@
-#HSLIDE
 ## Introduction to Knative
-Georgi Bozhinov, 2018
+Georgi Bozhinov, SAP, 2018
+
+---
+
+
