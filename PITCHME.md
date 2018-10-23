@@ -55,11 +55,12 @@ Georgi Bozhinov, SAP, 2018
 
 ### Build
 
-A build is a resource in Knative to fetch, build and package code on-cluster.
-
+* A build is a resource in Knative to fetch, build and package code on-cluster.
 * Defined in a single config file
 * Build templates ( Kaniko, cf buildpack template ) - reusable build pipelines
 * Example: Fetch code from github, use docker image to build it and deploy it on-cluster
+
+---
 
 ### Build
 
@@ -76,6 +77,8 @@ spec:
   - Read secrets, deploy other images...
 ```
 
+---
+
 ### Knative components
 
 * Serving
@@ -86,6 +89,8 @@ spec:
 
 Builds on K8S and Istio to support deploying and serving of serverless apps and functions
 
+---
+
 ### Serving
 
 Features:
@@ -95,24 +100,33 @@ Features:
 * Network programming - routing, ingress, services, load balancing for distributed microservices
 * Point-in-time snapshots of deployed code ( called Revisions )
 
+---
+
 ### Serving - Service
 
-Knative serving gives us a Service abstraction
-
+* Knative serving gives us a Service abstraction
 * Not to be confused with all the other meanings of service in this context
 * Manages lifecycle of the workload. Creates objects to ensure app has route, a configuration and a new revision on each update.
+
+---
 
 ### Serving - Route
 
 * Maps a network endpoint to one of more revisions.
 
+---
+
 ### Serving - Configuration
 
 * Maintains the desired state for the deployment. Modifying it creates a new revision.
 
+---
+
 ### Serving - Revision
 
 * Point-in-time snapshot of the code. Linear history for each new modification. Revisions are immutable.
+
+---
 
 ### Build + Serving
 
@@ -147,3 +161,5 @@ spec:
             - name: SIMPLE_MSG
               value: "Hello sample app!"
 ```
+
+---
