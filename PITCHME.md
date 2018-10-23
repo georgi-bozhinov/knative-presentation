@@ -1,14 +1,17 @@
 ## Introduction to Knative
-Georgi Bozhinov, SAP, 2018
 
-<img src="assets/knative-logo.png">
+<img src="assets/knative-logo.png" width="200">
+
+Georgi Bozhinov, SAP, 2018
+---
+
+### Knative is an open-source platform for deploying serverless workloads on K8S
 
 ---
 
-### Knative is an open-source platform for deploying serveless workloads on K8S
-
+- Provides a set of high-level key components that manage and automate the different aspects of deploying an application
+- From source to url to the cloud, on premise or on a third-party data center.
 - Functions, applications, containers
-- Provides a set of high-level key components that manage and automate the different aspects of deploying an application `from source to url` to the cloud, on premise or on a third-party data center.
 
 ---
 
@@ -25,11 +28,9 @@ Georgi Bozhinov, SAP, 2018
 #### What is serverless?
 
 - Run code without provisioning or managing servers
-- Not concerning ourselves with the underlying infrastructure where we're deploying
 - The platform handles everything down to resource provisioning and managing processes
 - Functions as a service (FaaS)
-- Conceptually a microservice architecture
-- Message-driven applications
+- Message-driven, microservice applications
 
 ---
 
@@ -48,4 +49,4 @@ Georgi Bozhinov, SAP, 2018
 
 ### Knative components
 
-#### Build
+* Build
