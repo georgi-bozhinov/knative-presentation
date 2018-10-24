@@ -65,17 +65,26 @@ Georgi Bozhinov, SAP, 2018
 ### Build
 
 ```
+apiVersion: build.knative.dev/v1alpha1
+kind: Build
+metadata:
+  name: example-build
 spec:
+  serviceAccountName: build-auth-example
   source:
     git:
-      url: https://github.com/knative/build.git
+      url: https://github.com/example/build-example.git
       revision: master
   steps:
-  - image: ubuntu
-    args: ["cat", "README.md"]
+  - name: ubuntu-example
+    image: ubuntu
+    args: ["ubuntu-build-example", "SECRETS-example.md"]
   steps:
-  - Read secrets, deploy other images...
+  - image: gcr.io/example-builders/build-example
+    args: ['echo', 'hello-example', 'build']
 ```
+
+[Samples](https://github.com/knative/build/tree/master/test)
 
 ---
 
@@ -99,6 +108,12 @@ Features:
 * Autoscaling up and down
 * Network programming - routing, ingress, services, load balancing for distributed microservices
 * Point-in-time snapshots of deployed code ( called Revisions )
+
+---
+
+### Serving
+
+<img src="assets/service-chart.png" width="400">
 
 ---
 
@@ -132,34 +147,65 @@ Features:
 
 An end-to-end deployment from source
 
-```
-apiVersion: serving.knative.dev/v1alpha1
-kind: Service
-metadata:
-  name: app-from-source
-  namespace: default
-spec:
-  runLatest:
-    configuration:
-      build:
-        serviceAccountName: build-bot
-        source:
-          git:
-            url: https://github.com/mchmarny/simple-app.git
-            revision: master
-        template:
-          name: kaniko
-          arguments:
-          - name: IMAGE
-            value: docker.io/{DOCKER_USERNAME}/app-from-source:latest
-      revisionTemplate:
-        spec:
-          container:
-            image: docker.io/{DOCKER_USERNAME}/app-from-source:latest 
-            imagePullPolicy: Always
-            env:
-            - name: SIMPLE_MSG
-              value: "Hello sample app!"
-```
+### DEMO
+
+---
+
+### Build + Serving
+
+What Knative did:
+
+* Fetched the source from github and built the docker image with the build template
+* Uploaded it to the registry 
+* Created an immutable revision of the app
+* Network programming - route, ingress, service (k8s service) and load balancer
+* Automatically with scale the pods up and down
+
+---
+
+### Autoscaling
+
+Speaking of...
+Autoscaling a golang web service
+
+### DEMO
+
+---
+
+### Knative Components
+
+* Eventing
+
+---
+
+### Eventing
+
+* Managing event sources, responding to events, connecting services through message buses
+
+---
+
+### Eventing
+
+* Main components are Buses, Sources, and Flows
+
+---
+
+### Eventing - Buses
+
+* Provide a k8s native abstraction over message buses like Kafka
+* Events published to a Channel, Subscriptions route that Channel to interested applications
+
+---
+
+### Eventing - Sources
+
+* Abstraction for data sources outside k8s and routing them to the cluster
+* Examples: Kubernetes Events, Github Events, GCP PubSub
+
+---
+
+### Eventing - Flows
+
+* Describes the desired path from an external Source of events to a destination that will react to the events.
 
 ---
