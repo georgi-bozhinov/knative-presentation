@@ -101,7 +101,7 @@ spec:
 
 Builds on K8S and Istio to support deploying and serving of serverless apps and functions
 
-<img src="assets/k8s.jpeg" width="200"> + <img src="assets/istio.png" width="200">
+<img src="assets/k8s-istio.png" width="400">
 
 ---
 
