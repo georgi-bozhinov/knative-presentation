@@ -5,7 +5,10 @@
 Georgi Bozhinov, SAP, 2018
 ---
 
-### Knative is an open-source platform for deploying serverless workloads on K8S
+### Knative is an open-source platform for deploying serverless workloads on
+
+
+<img src="assets/k8s.jpeg" width="200">
 
 ---
 
@@ -97,6 +100,8 @@ spec:
 ### Serving
 
 Builds on K8S and Istio to support deploying and serving of serverless apps and functions
+
+<img src="assets/k8s.jpeg" width="200"> + <img src="assets/istio.png" width="200">
 
 ---
 
