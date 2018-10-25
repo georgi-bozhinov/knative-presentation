@@ -71,20 +71,12 @@ Georgi Bozhinov, SAP, 2018
 apiVersion: build.knative.dev/v1alpha1
 kind: Build
 metadata:
-  name: example-build
+  name: hello-build
 spec:
-  serviceAccountName: build-auth-example
-  source:
-    git:
-      url: https://github.com/example/build-example.git
-      revision: master
   steps:
-  - name: ubuntu-example
-    image: ubuntu
-    args: ["ubuntu-build-example", "SECRETS-example.md"]
-  steps:
-  - image: gcr.io/example-builders/build-example
-    args: ['echo', 'hello-example', 'build']
+  - name: hello
+    image: busybox
+    args: ['echo', 'hello', 'build']
 ```
 
 [Samples](https://github.com/knative/build/tree/master/test)
