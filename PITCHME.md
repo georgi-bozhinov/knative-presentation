@@ -18,14 +18,6 @@ Georgi Bozhinov, SAP, 2018
 
 ---
 
-### Knative components
-
-- Build - source-to-container build orchestration
-- Eventing - management and delivery of events
-- Serving - request-driven scaling, network programming, point-in-time snapshots of deployed code and configurations
-
----
-
 ### But first...
 
 #### What is serverless?
@@ -47,6 +39,14 @@ Georgi Bozhinov, SAP, 2018
 ---
 
 ### So how does Knative achieve this architecture?
+
+---
+
+### Knative components
+
+- Build - source-to-container build orchestration
+- Eventing - management and delivery of events
+- Serving - request-driven scaling, network programming, point-in-time snapshots of deployed code and configurations
 
 ---
 
@@ -156,7 +156,7 @@ What Knative did:
 * Uploaded it to the registry 
 * Created an immutable revision of the app
 * Network programming - route, ingress, service (k8s service) and load balancer
-* Automatically with scale the pods up and down
+* Will automatically scale the pods up and down
 
 ---
 
@@ -178,11 +178,6 @@ Autoscaling a golang web service
 ### Eventing
 
 * Managing event sources, responding to events, connecting services through message buses
-
----
-
-### Eventing
-
 * Main components are Buses, Sources, and Flows
 
 ---
