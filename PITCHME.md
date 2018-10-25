@@ -214,3 +214,19 @@ Autoscaling a golang web service
 * Describes the desired path from an external Source of events to a destination that will react to the events.
 
 ---
+
+### Recap
+
+Main features of Knative:
+
+* Autoscaling
+* Source-to-url deployment
+* Networking is handled for us
+* We write the code, the platform does the rest
+* Serverless
+
+---
+
+## Thank you for the attention!
+
+<img src="assets/knative-logo.png" width="200">
