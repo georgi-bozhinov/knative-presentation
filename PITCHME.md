@@ -22,8 +22,8 @@ Georgi Bozhinov, SAP, 2018
 
 #### What is serverless?
 
-- Run code without provisioning or managing servers
-- The platform handles everything down to resource provisioning and managing processes
+- Run code without provisioning servers
+- The platform handles everything down to resource allocation and managing processes
 - Functions as a service (FaaS)
 - Message-driven, microservice applications
 
@@ -58,7 +58,7 @@ Georgi Bozhinov, SAP, 2018
 
 ### Build
 
-* A build is a resource in Knative to fetch, build and package code on-cluster.
+* A build is a resource in Knative to fetch, build and package code on-cluster
 * Defined in a single config file
 * Build templates ( Kaniko, cf buildpack template ) - reusable build pipelines
 * Example: Fetch code from github, use docker image to build it and deploy it on-cluster
@@ -118,25 +118,25 @@ Features:
 
 * Knative serving gives us a Service abstraction
 * Not to be confused with all the other meanings of service in this context
-* Manages lifecycle of the workload. Creates objects to ensure app has route, a configuration and a new revision on each update.
+* Manages lifecycle of the workload. Creates objects to ensure app has route, a configuration and a new revision on each update
 
 ---
 
 ### Serving - Route
 
-* Maps a network endpoint to one of more revisions.
+* Maps a network endpoint to one of more revisions
 
 ---
 
 ### Serving - Configuration
 
-* Maintains the desired state for the deployment. Modifying it creates a new revision.
+* Maintains the desired state for the deployment. Modifying it creates a new revision
 
 ---
 
 ### Serving - Revision
 
-* Point-in-time snapshot of the code. Linear history for each new modification. Revisions are immutable.
+* Point-in-time snapshot of the code. Linear history for each new modification. Revisions are immutable
 
 ---
 
@@ -198,7 +198,7 @@ Autoscaling a golang web service
 
 ### Eventing - Flows
 
-* Describes the desired path from an external Source of events to a destination that will react to the events.
+* Describes the desired path from an external Source of events to a destination that will react to the events
 
 ---
 
@@ -208,7 +208,7 @@ Main features of Knative:
 
 * Autoscaling
 * Source-to-url deployment
-* Networking is handled for us
+* Networking is handled for us ( Istio magic )
 * We write the code, the platform does the rest
 * Serverless
 
